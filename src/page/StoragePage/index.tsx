@@ -35,7 +35,9 @@ const StoragePage = (): JSX.Element => {
   return (
     <div className="StoragePageClass">
       <div>
-        <h1>Storage</h1>
+        <h1 id="pageTitlePhone">Storage media queries Phone</h1>
+        <h1 id="pageTitleTablet">Storage media queries Tablet</h1>
+        <h1 id="pageTitlePC">Storage media queries PC</h1>
       </div>
 
       <form>

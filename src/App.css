@@ -54,6 +54,15 @@
 .StoragePageClass .letterButtonScreen {
   display: contents;
 }
+#pageTitlePhone {
+  display: none;
+}
+#pageTitleTablet {
+  display: none;
+}
+#pageTitlePC {
+  display: contents;
+}
 
 @media screen and (max-width: 767px) {
   #navbar_menus span {
@@ -104,6 +113,15 @@
     flex-direction: column;
     margin: 10px;
   }
+  #pageTitlePhone {
+    display: contents;
+  }
+  #pageTitleTablet {
+    display: none;
+  }
+  #pageTitlePC {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -129,5 +147,20 @@
   .CreateInputAreaButton {
     margin: 10px;
     text-align: right;
+  }
+  .StoragePageClass .letterButtonScreen {
+    display: none;
+  }
+  .StoragePageClass .iconButtonScreen {
+    display: contents;
+  }
+  #pageTitlePhone {
+    display: none;
+  }
+  #pageTitleTablet {
+    display: contents;
+  }
+  #pageTitlePC {
+    display: none;
   }
 }
