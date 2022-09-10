@@ -19,6 +19,11 @@ const Navbar = (): JSX.Element => {
               <ListItemText>Storage</ListItemText>
             </ListItem>
           </Link>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            <ListItem button>
+              <ListItemText>Storage</ListItemText>
+            </ListItem>
+          </Link>
         </List>
       </div>
     </nav>

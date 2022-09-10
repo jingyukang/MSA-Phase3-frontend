@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import { IItem, IItemUpdatePayload } from "../../../model";
 import { useAppDispatch } from "../../../app/hooks";
 import {
@@ -6,9 +6,11 @@ import {
   getItemsAsync,
   updateItemAsync,
 } from "../../../slice/items";
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import Input from "@mui/material/Input";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
@@ -81,26 +83,47 @@ const RenderStorageItems = ({ item }: storageItemProps): JSX.Element => {
     <TableBody>
       <TableRow>
         <TableCell>
-          {`${item.itemDescription
-            .charAt(0)
-            .toUpperCase()}${item.itemDescription.slice(1)} ${item.itemName
-            .charAt(0)
-            .toUpperCase()}${item.itemName.slice(1)}`}
+          {item.itemDescription.charAt(0).toUpperCase()}
+          {item.itemDescription.slice(1)}
+        </TableCell>
+        <TableCell>
+          {item.itemName.charAt(0).toUpperCase()}
+          {item.itemName.slice(1)}
         </TableCell>
         <TableCell>$ {item.price}</TableCell>
         <TableCell>{item.quantity}</TableCell>
         <TableCell>
           <Button
+            className="letterButtonScreen"
             size="small"
+            color="error"
             variant="outlined"
             startIcon={<DeleteOutlineIcon />}
             onClick={deleteItemButton}
           >
             Delete
           </Button>
+          <IconButton
+            className="iconButtonScreen"
+            aria-label="delete"
+            size="small"
+            onClick={deleteItemButton}
+            color="error"
+          >
+            <DeleteOutlineIcon fontSize="inherit" />
+          </IconButton>
         </TableCell>
       </TableRow>
       <TableRow>
+        <TableCell>
+          <Input
+            type="text"
+            placeholder="Description change"
+            onChange={(e) => {
+              setUpdateDescription(e.target.value);
+            }}
+          />
+        </TableCell>
         <TableCell>
           <Input
             type="text"
@@ -130,6 +153,7 @@ const RenderStorageItems = ({ item }: storageItemProps): JSX.Element => {
         </TableCell>
         <TableCell>
           <Button
+            className="letterButtonScreen"
             size="small"
             startIcon={<SendOutlinedIcon />}
             variant="outlined"
@@ -138,9 +162,19 @@ const RenderStorageItems = ({ item }: storageItemProps): JSX.Element => {
           >
             Update
           </Button>
+          <IconButton
+            className="iconButtonScreen"
+            aria-label="delete"
+            size="small"
+            onClick={updateItemButton}
+            color="secondary"
+          >
+            <SendOutlinedIcon fontSize="inherit" />
+          </IconButton>
         </TableCell>
       </TableRow>
       <TableRow>
+        <TableCell></TableCell>
         <TableCell></TableCell>
         <TableCell></TableCell>
         <TableCell>
@@ -153,17 +187,12 @@ const RenderStorageItems = ({ item }: storageItemProps): JSX.Element => {
           />
         </TableCell>
         <TableCell>
-          <Button variant="outlined" size="small" onClick={updatePlus}>
-            +
-          </Button>
-          <Button
-            color="error"
-            variant="outlined"
-            size="small"
-            onClick={updateMinus}
-          >
-            -
-          </Button>
+          <IconButton size="small" onClick={updatePlus} color="primary">
+            <AddIcon />
+          </IconButton>
+          <IconButton size="small" onClick={updateMinus} color="error">
+            <RemoveIcon />
+          </IconButton>
         </TableCell>
       </TableRow>
     </TableBody>

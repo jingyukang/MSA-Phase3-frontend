@@ -15,10 +15,20 @@
 }
 #navbar_logo {
   flex-grow: 2;
+  text-align: left;
+}
+
+#navbar_logo a {
+  text-decoration: none;
+  color: rgb(103, 40, 0);
 }
 
 #navbar_menus {
   flex-grow: 8;
+}
+#navbar_menus a {
+  text-decoration: none;
+  color: rgb(173, 66, 0);
 }
 #navbar_menus ul {
   display: flex;
@@ -28,11 +38,96 @@
   list-style: none;
   padding-right: 1rem;
 }
-/* 
-table {
-  border-left: solid;
+
+.StoragePageClass {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.CreateInputArea {
+  display: flex;
 }
 
-.eachInvoice {
-  padding-bottom: 2rem;
-} */
+.StoragePageClass .iconButtonScreen {
+  display: none;
+}
+.StoragePageClass .letterButtonScreen {
+  display: contents;
+}
+
+@media screen and (max-width: 767px) {
+  #navbar_menus span {
+    font-size: x-small;
+  }
+
+  #navbar_menus .css-bshv44-MuiButtonBase-root-MuiListItem-root {
+    padding: 5px;
+  }
+  h1 {
+    font-size: large;
+  }
+  .StoragePageClass {
+    width: 80%;
+  }
+
+  .CreateInputArea {
+    flex-direction: column;
+  }
+
+  .StoragePageClass table th {
+    font-size: x-small;
+    padding: 5px 5px;
+  }
+  .StoragePageClass table tbody tr td {
+    padding: 5px 5px;
+    font-size: x-small;
+  }
+  .StoragePageClass table input {
+    font-size: xx-small;
+  }
+  .StoragePageClass .letterButtonScreen {
+    display: none;
+  }
+  .StoragePageClass .iconButtonScreen {
+    display: contents;
+  }
+  .CreateInputArea {
+    display: flex;
+    flex-direction: column;
+  }
+  .CreateInputAreaInputs {
+    display: flex;
+    flex-direction: column;
+  }
+  .CreateInputAreaButton {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .StoragePageClass table th {
+    font-size: small;
+  }
+  .StoragePageClass table tbody tr td {
+    font-size: small;
+  }
+  .StoragePageClass table input {
+    font-size: small;
+  }
+  .StoragePageClass {
+    width: 90%;
+  }
+  .CreateInputArea {
+    display: flex;
+    flex-direction: column;
+  }
+  .CreateInputAreaInputs {
+    display: flex;
+  }
+  .CreateInputAreaButton {
+    margin: 10px;
+    text-align: right;
+  }
+}
