@@ -5,7 +5,6 @@ import { createItemAsync, selectAllItems } from "../../slice/items";
 import { Button, Input } from "@mui/material";
 import RenderStorageItems from "./RenderStorageItems";
 import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";

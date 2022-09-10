@@ -16,6 +16,14 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 
+export const calculateQuantity = (
+  originalQuantity: number,
+  additionalQuantity: number | undefined
+): number => {
+  if (additionalQuantity !== undefined)
+    return originalQuantity + additionalQuantity;
+  return originalQuantity;
+};
 interface storageItemProps {
   item: IItem;
 }
@@ -59,20 +67,17 @@ const RenderStorageItems = ({ item }: storageItemProps): JSX.Element => {
   const updatePlus = (): void => {
     const payload: IItemUpdatePayload = {
       ...item,
-      quantity: !updateQuantity
-        ? item.quantity
-        : item.quantity + updateQuantity,
+      quantity: calculateQuantity(item.quantity, updateQuantity),
     };
     Number(updateQuantity) < 0
       ? alert("Invalid number")
       : dispatch(updateItemAsync(payload));
   };
+
   const updateMinus = (): void => {
     const payload: IItemUpdatePayload = {
       ...item,
-      quantity: !updateQuantity
-        ? item.quantity
-        : item.quantity - updateQuantity,
+      quantity: calculateQuantity(item.quantity, Number(updateQuantity) * -1),
     };
     Number(updateQuantity) < 0 || Number(updateQuantity) > item.quantity
       ? alert("Invalid number")
