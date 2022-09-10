@@ -34,53 +34,60 @@ const StoragePage = (): JSX.Element => {
   };
 
   return (
-    <div>
+    <div className="StoragePageClass">
       <div>
         <h1>Storage</h1>
       </div>
 
       <form>
-        <div>
-          <Input
-            placeholder="Item Name"
-            type="text"
-            name="item"
-            onChange={(e) => {
-              setItem(e.target.value);
-            }}
-          />
-          <Input
-            placeholder="Item Description"
-            type="text"
-            name="description"
-            onChange={(e) => {
-              setItemDescription(e.target.value);
-            }}
-          />
-          <Input
-            placeholder="Number of Price"
-            type="number"
-            name="price"
-            onChange={(e) => {
-              setItemPrice(Number(e.target.value));
-            }}
-          />
-          <Input
-            placeholder="Number of Quantity"
-            type="number"
-            name="quantity"
-            onChange={(e) => {
-              setItemQuantity(Number(e.target.value));
-            }}
-          />
-          <Button size="small" variant="contained" onClick={addItemButton}>
-            Add Item
-          </Button>
+        <div className="CreateInputArea">
+          <div className="CreateInputAreaInputs">
+            <Input
+              placeholder="Item Name"
+              type="text"
+              name="item"
+              onChange={(e) => {
+                setItem(e.target.value);
+              }}
+            />
+            <Input
+              placeholder="Item Description"
+              type="text"
+              name="description"
+              onChange={(e) => {
+                setItemDescription(e.target.value);
+              }}
+            />
+            <Input
+              placeholder="Number of Price"
+              type="number"
+              name="price"
+              onChange={(e) => {
+                setItemPrice(Number(e.target.value));
+              }}
+            />
+            <Input
+              placeholder="Number of Quantity"
+              type="number"
+              name="quantity"
+              onChange={(e) => {
+                setItemQuantity(Number(e.target.value));
+              }}
+            />
+          </div>
+          <div className="CreateInputAreaButton">
+            <Button size="small" variant="contained" onClick={addItemButton}>
+              Add Item
+            </Button>
+          </div>
         </div>
       </form>
       <Table>
         <TableHead>
           <TableRow>
+            <TableCell>
+              <h3>Description</h3>
+            </TableCell>
             <TableCell>
               <h3>Item</h3>
             </TableCell>
