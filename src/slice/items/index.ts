@@ -5,8 +5,6 @@ import {
   deleteItem,
   fetchItems,
   updateItem,
-  // updateItem,
-  // deleteItem,
 } from "../../api/items";
 
 import { RootState } from "../../app/store";
